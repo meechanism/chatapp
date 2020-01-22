@@ -26,20 +26,28 @@ The React application was generated from `create-react-app` to streamline the pr
 # Get started
 
 1. Clone the repositorty
-2. Install dependencies
+2. Install dependencies for both client and server. You may want to open different tabs for each:
+
+    Client/Web app :
     ```sh
+    $ cd client
     $ npm i
     ```
-3. Run and client and server separately. You may want to open to different terminal tabs for this:
+
+    Server:
     ```sh
-    # for the client (web app)
-    $ cd client
+    $ cd server
+    $ npm i
+    ```
+3. Run and client and server separately. You can use the tabs from the previous step:
+
+    In the `/client` directory:
+    ```sh
     $ npm start
     ```
 
+    In the `/server` directory:
     ```sh
-    # for the server (server + socket io)
-    $ cd server
     $ npm start
     ```
 4. For a two person chat, open two tabs in your browser at `http://localhost:3000/` and join the same channel name with different user names.
