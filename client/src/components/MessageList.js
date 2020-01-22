@@ -7,6 +7,7 @@ const Wrapper = styled.ul`
     margin: 1rem 1.5rem;
     padding: 0;
     list-style: none;
+    overflow: auto;
 `;
 
 export const MessageList = ({ messages, name }) => {

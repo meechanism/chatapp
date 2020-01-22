@@ -12,6 +12,7 @@ const Wrapper = styled.div`
 `;
 
 export const SendMsgForm = ({ message, setMessage, sendMessage }) => {
+    const disabled = message.length === 0;
     return (<Wrapper>
         <Input type="text"
             value={message}
@@ -19,6 +20,6 @@ export const SendMsgForm = ({ message, setMessage, sendMessage }) => {
             onChange={e => setMessage(e.target.value)}
             onKeyPress={e => e.key === 'Enter' ? sendMessage(e) : null}
         />
-        <Button block onClick={e => sendMessage(e)}>Send</Button>
+        <Button disabled={disabled} block onClick={e => sendMessage(e)}>Send</Button>
     </Wrapper>)
 }

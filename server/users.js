@@ -4,7 +4,6 @@ const normalize = require('./utilities').normalize;
 const users = [];
 
 const addUser = ({ id, name, channel }) => {
-
     const nornamlizedName = normalize(name);
     const nornamlizedChannel = normalize(channel);
     const existingUser = users.find(user => user.channel === nornamlizedChannel && user.name === nornamlizedName)
@@ -19,7 +18,6 @@ const addUser = ({ id, name, channel }) => {
     };
 
     users.push(user);
-    console.dir(users);
     return { user }
 }
 

@@ -33,11 +33,9 @@ const Exit = styled.i`
     }
 `;
 
-export const ChannelBar = ({ channel }) => {
-    return (
-        <Wrapper>
-            <Name>{channel}</Name>
-            <Exit />
-        </Wrapper>
-    )
-}
+export const ChannelBar = ({ channel, history }) => (
+    <Wrapper>
+        <Name>{channel}</Name>
+        <Exit onClick={(e) => history.push('/')}/>
+    </Wrapper>
+)

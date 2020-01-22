@@ -12,7 +12,7 @@ import { MessageList } from '../components/MessageList'
 
 let socket;
 
-export const Chat = ({ location }) => {
+export const Chat = ({ location, history }) => {
     const [ name, setName ] = useState('');
     const [ channel, setChannel ] = useState('');
     const [ message, setMessage ] = useState([]);
@@ -20,20 +20,18 @@ export const Chat = ({ location }) => {
 
     useEffect(() => {
         const { channel, name } = queryString.parse(location.search)
-
         socket = io(Config.ioEndpoint)
         setName(name);
         setChannel(channel);
 
         // Tell server when a user joins a channel
         socket.emit('join', { name, channel }, () => {
-            console.log(`Server successfully saw ${name} joined ${channel}`)
+            // Hook for when we want to do anything with joining
         });
 
         // Unmount and disconnect effects
         return () => {
             socket.emit('disconnect');
-
             // Turns instance of this chat client off
             socket.off();
         }
@@ -56,8 +54,8 @@ export const Chat = ({ location }) => {
 
     return (<PageWrapper>
         <GlobalStyles />
-        <ChannelBar channel={channel} />
+        <ChannelBar channel={channel} history={history} />
         <MessageList messages={messages} name={name} />
-        <SendMsgForm  message={message} setMessage={setMessage} sendMessage={sendMessage} />
+        <SendMsgForm message={message} setMessage={setMessage} sendMessage={sendMessage} />
     </PageWrapper>);
 }
