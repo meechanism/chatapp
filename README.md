@@ -11,11 +11,44 @@ Requirements: Node and NPM installed.
 
 The React application was generated from `create-react-app` to streamline the process and some of the boilerplate was removed. Key notes of tools used:
 
-- Socket.io Client: used to communicate realtime messaging with server and other clients
-- React Hooks: used for function based components to control state and lifecycle methods
-- Styled-components: used for css-in-js primitive components to promote declarative component composition
+- [Socket.io](https://socket.io/) (client): used to communicate realtime messaging with server and other clients
+- [React](https://reactjs.org/): framework used to build the UI
+- [React Hooks](https://reactjs.org/docs/hooks-intro.html): used for function based components to control state and lifecycle methods
+- [Styled-components](https://styled-components.com/): used for css-in-js primitive components to promote declarative component composition
 
 ## Server Notes
 
-The server is Express and runs on NodeJS. I used Socket.io for realtime communication.
+- Runs on [NodeJS](https://nodejs.org/en/)
+- [Express](https://expressjs.com/): spins up and hosts web app
+- [Socket.io](https://socket.io/) (server): for realtime event based communication to support the chat system
+
+
+# Get started
+
+1. Clone the repositorty
+2. Install dependencies
+    ```sh
+    $ npm i
+    ```
+3. Run and client and server separately. You may want to open to different terminal tabs for this:
+    ```sh
+    # for the client (web app)
+    $ cd client
+    $ npm start
+    ```
+
+    ```sh
+    # for the server (server + socket io)
+    $ cd server
+    $ npm start
+    ```
+4. For a two person chat, open two tabs in your browser at `http://localhost:3000/` and join the same channel name with different user names.
+    - Example tab 1:
+        - user: Jeffrey
+        - channel: general
+    - Example tab 2:
+        - user: Martha
+        - channel: general
+5. Chat away in each tab!
+6. When done, you can exit by clicking the `X` in the top right hand corner or close the window. The server will know you disconnected, clean the user up, and tell other users in the channel that user has disconnected.
 
